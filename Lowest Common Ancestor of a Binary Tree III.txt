@@ -1,0 +1,23 @@
+class Solution {
+    public Node lowestCommonAncestor(Node p, Node q) {
+          Set<Node> hs = new HashSet<>();
+          while(!hs.contains(p)&&!hs.contains(q)&&p!=q){
+              if(p!=null){
+                  hs.add(p);
+                  p=p.parent;
+              }
+              if(q!=null){
+                  hs.add(q);
+                  q=q.parent;
+              }
+          }
+          System.out.println(hs);
+          if(p==q){
+              return p;
+          }
+          if(hs.contains(p)){
+              return p;
+          }
+          return q;
+    }
+}
