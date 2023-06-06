@@ -1,0 +1,22 @@
+class Solution {
+    public int minSwaps(int[] data) {
+        int windowSize=0;
+         for(int i:data){
+            windowSize+=i;
+         }
+       int currOneWindow=0;
+       int maxOneWindow=0;
+       int s=0,e=0;
+       while(e<data.length){
+            currOneWindow+=data[e];
+            if(e>=windowSize){
+                currOneWindow-=data[s];
+                s++;
+            }
+            e++;
+            maxOneWindow=Math.max(maxOneWindow,currOneWindow);
+            
+       }
+       return windowSize-maxOneWindow;
+    }
+}
