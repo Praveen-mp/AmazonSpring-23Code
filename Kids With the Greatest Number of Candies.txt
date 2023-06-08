@@ -1,0 +1,18 @@
+class Solution {
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+         List<Boolean> ans = new ArrayList<>();
+         int c;
+         for(int i=0;i<candies.length;i++){
+             int sum=candies[i]+extraCandies;
+             c=0;
+             for(int j=0;j<candies.length;j++){
+                 if(i!=j && sum>=candies[j]){
+                 c++;
+                 }
+             }
+             if(c==candies.length-1) ans.add(true);
+             else ans.add(false);
+         }
+         return ans;
+    }
+}
